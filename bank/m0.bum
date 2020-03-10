@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="accounts ≔ ∅" org.eventb.core.comment="变量初始化也是特殊的事件action，这行表示开户集合是空集" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="balance ≔ ∅" org.eventb.core.comment="两个映射关系也设置为空集" org.eventb.core.label="act2"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="owner ≔ ∅" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="(" org.eventb.core.target="c0"/>
+<org.eventb.core.variable name=")" org.eventb.core.comment="开户的账户的集合" org.eventb.core.identifier="accounts"/>
+<org.eventb.core.variable name="*" org.eventb.core.comment="账户对应余额" org.eventb.core.identifier="balance"/>
+<org.eventb.core.variable name="+" org.eventb.core.comment="账户对应所有者" org.eventb.core.identifier="owner"/>
+<org.eventb.core.invariant name="," org.eventb.core.comment="accounts开户的账户集合是所有账户的集合A的子集" org.eventb.core.label="inv1" org.eventb.core.predicate="accounts ⊆ A" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="-" org.eventb.core.comment="从集合accounts到0~limit的映射" org.eventb.core.label="inv2" org.eventb.core.predicate="balance ∈ accounts → 0‥limit"/>
+<org.eventb.core.invariant name="." org.eventb.core.comment="账户到人的映射" org.eventb.core.label="inv3" org.eventb.core.predicate="owner ∈ accounts → P"/>
+<org.eventb.core.event name="/" org.eventb.core.comment="开账户" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="open">
+<org.eventb.core.action name="'" org.eventb.core.assignment="accounts ≔ accounts ∪ { a }" org.eventb.core.comment="把要开的账户记录到accouts里" org.eventb.core.label="act1"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="open事件的参数，表示要开户的账户" org.eventb.core.identifier="a"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="在条件这里指明参数a是一个账户，即A中元素" org.eventb.core.label="grd1" org.eventb.core.predicate="a ∈ A"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="a原本不在accounts里，即原来是没开户过的才行" org.eventb.core.label="grd2" org.eventb.core.predicate="a ∉ accounts"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="balance ≔ balance ∪ { a↦0 }" org.eventb.core.comment="开户后账户余额是0，需要在这个映射集合里添加映射" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="owner ≔ owner ∪ {a↦p}" org.eventb.core.comment="账户所有者" org.eventb.core.label="act3"/>
+<org.eventb.core.parameter name="-" org.eventb.core.comment="谁要开户" org.eventb.core.identifier="p"/>
+<org.eventb.core.guard name="." org.eventb.core.comment="要开户的是个人" org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ P"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="0" org.eventb.core.comment="关闭账户" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="close">
+<org.eventb.core.parameter name="'" org.eventb.core.comment="要关闭的账户" org.eventb.core.identifier="a"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="要关闭的账户必须是已经开户的账户" org.eventb.core.label="grd1" org.eventb.core.predicate="a ∈ accounts"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="accounts ≔ accounts ∖ { a }" org.eventb.core.comment="将账户从开户集合中移除即可" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="只有余额是0的账户才能关闭" org.eventb.core.label="grd2" org.eventb.core.predicate="balance(a) = 0"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="balance ≔ {a} ⩤ balance" org.eventb.core.comment="定义域减法，将账户a从balance的定义域中删除" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="owner ≔ {a} ⩤ owner" org.eventb.core.comment="定义域减法，将账户a从owner的定义域中删除" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="1" org.eventb.core.comment="往账户里存钱" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="deposit">
+<org.eventb.core.parameter name="'" org.eventb.core.comment="哪个账户" org.eventb.core.identifier="a"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="存多少" org.eventb.core.identifier="q"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="账户参数需要是已经开通的账户" org.eventb.core.label="grd1" org.eventb.core.predicate="a ∈ accounts"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="存的钱数是自然数" org.eventb.core.label="grd2" org.eventb.core.predicate="q ∈ ℕ"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="balance(a) ≔ balance(a) + q" org.eventb.core.comment="存钱过程" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="," org.eventb.core.comment="存钱之后不能超过limit" org.eventb.core.label="grd3" org.eventb.core.predicate="balance(a)+q ≤ limit"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="2" org.eventb.core.comment="从账户中取钱" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="withdraw">
+<org.eventb.core.parameter name="'" org.eventb.core.comment="哪个账户" org.eventb.core.identifier="a"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="取多少" org.eventb.core.identifier="q"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="账户需要是已经开户的" org.eventb.core.label="grd1" org.eventb.core.predicate="a ∈ accounts"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="取的钱数是自然数" org.eventb.core.label="grd2" org.eventb.core.predicate="q ∈ ℕ"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="balance(a) ≔ balance(a) − q" org.eventb.core.comment="取钱过程" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="," org.eventb.core.comment="不能取超过余额的" org.eventb.core.label="grd3" org.eventb.core.predicate="balance(a)−q ≥ 0"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

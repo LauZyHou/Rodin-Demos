@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;org.animb.valuation.valBase">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="limit∈ℕ" org.eventb.core.source="/bank/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#*" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="limit&gt;0" org.eventb.core.source="/bank/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#+" org.eventb.core.theorem="false"/>
+<org.eventb.core.scCarrierSet name="A" org.eventb.core.source="/bank/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.carrierSet#'" org.eventb.core.type="ℙ(A)"/>
+<org.eventb.core.scCarrierSet name="P" org.eventb.core.source="/bank/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.carrierSet#(" org.eventb.core.type="ℙ(P)"/>
+<org.eventb.core.scConstant name="limit" org.eventb.core.source="/bank/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.constant#)" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>
