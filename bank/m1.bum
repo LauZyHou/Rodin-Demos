@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m0"/>
+<org.eventb.core.seesContext name="(" org.eventb.core.target="c0"/>
+<org.eventb.core.variable name=")" org.eventb.core.comment="开户的账户的集合" org.eventb.core.identifier="accounts"/>
+<org.eventb.core.variable name="*" org.eventb.core.comment="账户对应余额" org.eventb.core.identifier="balance"/>
+<org.eventb.core.variable name="+" org.eventb.core.comment="账户对应所有者" org.eventb.core.identifier="owner"/>
+<org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="trans ≔ ∅" org.eventb.core.comment="转账关系初始时也是空集" org.eventb.core.label="act4"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="-" org.eventb.core.comment="开账户" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="open">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="open"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="." org.eventb.core.comment="关闭账户" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="close">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="close"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="不能有汇往要关闭的账户的交易" org.eventb.core.label="grd3" org.eventb.core.predicate="a ∉ dom(trans)"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="/" org.eventb.core.comment="往账户里存钱" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="deposit">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="deposit"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="0" org.eventb.core.comment="从账户中取钱" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="withdraw">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="withdraw"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="1" org.eventb.core.comment="转账的中间状态集合" org.eventb.core.identifier="trans"/>
+<org.eventb.core.invariant name="2" org.eventb.core.comment="(到账账户,金额)" org.eventb.core.label="inv1" org.eventb.core.predicate="trans ∈ accounts ↔ ℕ"/>
+<org.eventb.core.event name="3" org.eventb.core.comment="转账第一步(该事件精化withdraw)表示先取钱" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="transfer1">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="withdraw"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="目标账户" org.eventb.core.identifier="b"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="b也是账户" org.eventb.core.label="grd4" org.eventb.core.predicate="b ∈ accounts"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="和a不同账户" org.eventb.core.label="grd5" org.eventb.core.predicate="b ≠ a"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="trans ≔ trans ∪ {b↦q}" org.eventb.core.comment="添加转账的中间状态" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="4" org.eventb.core.comment="转账第二步(精化deposit)表示存过去" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="transfer2">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="deposit"/>
+<org.eventb.core.parameter name="'" org.eventb.core.comment="哪个账户" org.eventb.core.identifier="a"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="存多少" org.eventb.core.identifier="q"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="账户参数需要是trans里的，即确实有一笔钱没到账" org.eventb.core.label="grd1" org.eventb.core.predicate="a ∈ dom(trans)"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="(a,q)在trans里" org.eventb.core.label="grd2" org.eventb.core.predicate="a↦q ∈ trans"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="balance(a) ≔ balance(a) + q" org.eventb.core.comment="存钱过程" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="q ≥ 0"/>
+<org.eventb.core.guard name="," org.eventb.core.comment="存钱之后不能超过limit" org.eventb.core.label="grd4" org.eventb.core.predicate="balance(a)+q ≤ limit"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

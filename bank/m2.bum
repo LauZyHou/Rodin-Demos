@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m1"/>
+<org.eventb.core.seesContext name="(" org.eventb.core.target="c1"/>
+<org.eventb.core.variable name=")" org.eventb.core.comment="开户的账户的集合" org.eventb.core.identifier="accounts"/>
+<org.eventb.core.variable name="*" org.eventb.core.comment="账户对应余额" org.eventb.core.identifier="balance"/>
+<org.eventb.core.variable name="+" org.eventb.core.comment="账户对应所有者" org.eventb.core.identifier="owner"/>
+<org.eventb.core.variable name="1" org.eventb.core.comment="转账的中间状态集合" org.eventb.core.identifier="trans"/>
+<org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="type ≔ ∅" org.eventb.core.comment="一开始账户是空的，所以这个映射关系也是" org.eventb.core.label="act5"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="3" org.eventb.core.comment="开账户" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="open">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="open"/>
+<org.eventb.core.parameter name="(" org.eventb.core.comment="开户类型" org.eventb.core.identifier="t"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd4" org.eventb.core.predicate="t ∈ Type"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="type ≔ type ∪ {a↦t}" org.eventb.core.comment="增加这个账户类型映射关系" org.eventb.core.label="act4"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="4" org.eventb.core.comment="关闭账户" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="close">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="close"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="type ≔ {a} ⩤ type" org.eventb.core.comment="关闭账户时也要把这个账户类型映射去掉" org.eventb.core.label="act4"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="5" org.eventb.core.comment="往账户里存钱" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="deposit">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="deposit"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="6" org.eventb.core.comment="从账户中取钱" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="withdraw">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="withdraw"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="7" org.eventb.core.comment="转账第一步(该事件精化withdraw)表示先取钱" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="transfer1">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="transfer1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="8" org.eventb.core.comment="转账第二步(精化deposit)表示存过去" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="transfer2">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="transfer2"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="9" org.eventb.core.comment="账户类型的映射函数" org.eventb.core.identifier="type"/>
+<org.eventb.core.invariant name=":" org.eventb.core.comment="每个账户都有唯一的类型" org.eventb.core.label="inv1" org.eventb.core.predicate="type ∈ accounts → Type"/>
+<org.eventb.core.event name=";" org.eventb.core.comment="存定期的操作，把这个人normal账户里的一笔钱给saving账户" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="save">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="transfer1"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="从normal账户到saving账户" org.eventb.core.label="grd6" org.eventb.core.predicate="type(a)=normal ∧ type(b)=saving"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="都是同一个人的账户" org.eventb.core.label="grd7" org.eventb.core.predicate="owner(a)=owner(b)"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="7">
+<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="A" org.eventb.core.type="ℙ(A)"/>
+<org.eventb.core.poIdentifier name="P" org.eventb.core.type="ℙ(P)"/>
+<org.eventb.core.poIdentifier name="limit" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poPredicate name="limiu" org.eventb.core.predicate="limit∈ℕ" org.eventb.core.source="/bank/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#*"/>
+<org.eventb.core.poPredicate name="limiv" org.eventb.core.predicate="limit&gt;0" org.eventb.core.source="/bank/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#+"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poIdentifier name="accounts" org.eventb.core.type="ℙ(A)"/>
+<org.eventb.core.poIdentifier name="balance" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="owner" org.eventb.core.type="ℙ(A×P)"/>
+<org.eventb.core.poIdentifier name="trans" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poPredicate name="accountt" org.eventb.core.predicate="accounts⊆A" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.invariant#,"/>
+<org.eventb.core.poPredicate name="accountu" org.eventb.core.predicate="balance∈accounts → 0 ‥ limit" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.invariant#-"/>
+<org.eventb.core.poPredicate name="accountv" org.eventb.core.predicate="owner∈accounts → P" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.invariant#."/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTALLHYPaccountt"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(A×ℤ))∈(∅ ⦂ ℙ(A)) ↔ ℕ" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#'"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#,"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTaccountt" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poIdentifier name="owner'" org.eventb.core.type="ℙ(A×P)"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="accounts'" org.eventb.core.type="ℙ(A)"/>
+<org.eventb.core.poIdentifier name="trans'" org.eventb.core.type="ℙ(A×ℤ)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPaccountt" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTIDENTaccountt" org.eventb.core.poStamp="1"/>
+<org.eventb.core.poSequent name="open/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTALLHYPaccountu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="trans∈accounts∪{a} ↔ ℕ" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#\/"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#-"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poSequent#open\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTaccountu" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poIdentifier name="owner'" org.eventb.core.type="ℙ(A×P)"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="accounts'" org.eventb.core.type="ℙ(A)"/>
+<org.eventb.core.poIdentifier name="p" org.eventb.core.type="P"/>
+<org.eventb.core.poIdentifier name="a" org.eventb.core.type="A"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPaccountu" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTIDENTaccountu" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a∈A" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#\/|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="a∉accounts" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#\/|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="p∈P" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#\/|org.eventb.core.guard#."/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="close/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTALLHYPaccountv"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="trans∈accounts ∖ {a} ↔ ℕ" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#0"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#."/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poSequent#close\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTaccountv" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poIdentifier name="owner'" org.eventb.core.type="ℙ(A×P)"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="accounts'" org.eventb.core.type="ℙ(A)"/>
+<org.eventb.core.poIdentifier name="a" org.eventb.core.type="A"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPaccountv" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTIDENTaccountv" org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a∈accounts" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#0|org.eventb.core.guard#("/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="balance(a)=0" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#0|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="a∉dom(trans)" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#.|org.eventb.core.guard#("/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTaccountw" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poIdentifier name="q" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="a" org.eventb.core.type="A"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPaccountw" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTIDENTaccountw" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a∈accounts" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="q∈ℕ" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="balance(a)+q≤limit" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1|org.eventb.core.guard#,"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTaccountx" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poIdentifier name="q" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="a" org.eventb.core.type="A"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPaccountx" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTIDENTaccountx" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a∈accounts" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#2|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="q∈ℕ" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="balance(a) − q≥0" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#2|org.eventb.core.guard#,"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="transfer1/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTALLHYPaccounty"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="trans∪{b ↦ q}∈accounts ↔ ℕ" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#2"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#3"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poSequent#transfer1\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTaccounty" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="q" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="b" org.eventb.core.type="A"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="a" org.eventb.core.type="A"/>
+<org.eventb.core.poIdentifier name="trans'" org.eventb.core.type="ℙ(A×ℤ)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPaccounty" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTIDENTaccounty" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a∈accounts" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#2|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="q∈ℕ" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="balance(a) − q≥0" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#2|org.eventb.core.guard#,"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="b∈accounts" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#3|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="b≠a" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#3|org.eventb.core.guard#*"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="transfer2/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="7">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTHYPaccountz*"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a∈dom(balance)∧balance∈A ⇸ ℤ" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4|org.eventb.core.guard#,"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4|org.eventb.core.guard#,"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTHYPaccountz*"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="transfer2/grd1/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="7">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTALLHYPaccountz"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a∈accounts" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1|org.eventb.core.guard#)"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1|org.eventb.core.guard#)"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poSequent#transfer2\/grd1\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="transfer2/grd2/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="7">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTALLHYPaccountz"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="q∈ℕ" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1|org.eventb.core.guard#*"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/bank/m0.bum|org.eventb.core.machineFile#m0|org.eventb.core.event#1|org.eventb.core.guard#*"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poSequent#transfer2\/grd2\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTaccountz" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="q" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="balance'" org.eventb.core.type="ℙ(A×ℤ)"/>
+<org.eventb.core.poIdentifier name="a" org.eventb.core.type="A"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPaccountz*" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTIDENTaccountz" org.eventb.core.poStamp="7">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a∈dom(trans)" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="a ↦ q∈trans" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="q≥0" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4|org.eventb.core.guard#-"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPaccountz" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#EVTHYPaccountz*" org.eventb.core.poStamp="7">
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="balance(a)+q≤limit" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.event#4|org.eventb.core.guard#,"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/bank/m1.bpo|org.eventb.core.poFile#m1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="trans∈accounts ↔ ℕ" org.eventb.core.source="/bank/m1.bum|org.eventb.core.machineFile#m1|org.eventb.core.invariant#2"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>
