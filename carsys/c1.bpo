@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="2">
+<org.eventb.core.poIdentifier name="d" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poPredicate name="e" org.eventb.core.predicate="d∈ℕ" org.eventb.core.source="/carsys/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#("/>
+<org.eventb.core.poPredicate name="f" org.eventb.core.predicate="d&gt;0" org.eventb.core.source="/carsys/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#)"/>
+<org.eventb.core.poIdentifier name="Color" org.eventb.core.type="ℙ(Color)"/>
+<org.eventb.core.poIdentifier name="green" org.eventb.core.type="Color"/>
+<org.eventb.core.poIdentifier name="red" org.eventb.core.type="Color"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="axm3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#HYPc2"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(Color)" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#-"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#-"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#HYPc2"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="axm3/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#HYPc2"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(Color)=2" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#-"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#-"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#HYPc2"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="HYPc2" org.eventb.core.parentSet="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="Color={red,green}" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#+"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="red≠green" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#,"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/carsys/c1.bpo|org.eventb.core.poFile#c1|org.eventb.core.poPredicateSet#HYPc2" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="card(Color)=2" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#-"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m1"/>
+<org.eventb.core.seesContext name="+" org.eventb.core.target="c1"/>
+<org.eventb.core.variable name="/" org.eventb.core.comment="从桥上往岛上走的车数量" org.eventb.core.identifier="a"/>
+<org.eventb.core.variable name="1" org.eventb.core.comment="岛上的车数量" org.eventb.core.identifier="b"/>
+<org.eventb.core.variable name="3" org.eventb.core.comment="从岛上往桥上走的车数量" org.eventb.core.identifier="c"/>
+<org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION"/>
+<org.eventb.core.event name="5" org.eventb.core.comment="从大陆到桥上(绿灯行)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ML_out_1">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="ML_out"/>
+<org.eventb.core.action name="'" org.eventb.core.assignment="a ≔ a+1" org.eventb.core.comment="在桥上并向岛开的车辆数增加1" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="绿灯时候可以上桥" org.eventb.core.label="grd1" org.eventb.core.predicate="ml_tl=green"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="a+1+b &lt; d"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="C" org.eventb.core.comment="从大陆到桥上(绿变红)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ML_out_2">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="ML_out"/>
+<org.eventb.core.action name="'" org.eventb.core.assignment="a ≔ a+1" org.eventb.core.comment="在桥上并向岛开的车辆数增加1" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="ml_tl=green"/>
+<org.eventb.core.guard name=")" org.eventb.core.comment="这个车上桥之后就到最大值d了" org.eventb.core.label="grd2" org.eventb.core.predicate="a+1+b=d"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="ml_tl ≔ red" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="6" org.eventb.core.comment="从桥上到大陆上" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="ML_in">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="ML_in"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="7" org.eventb.core.comment="从桥上到岛上" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="IL_in">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="IL_in"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="8" org.eventb.core.comment="从岛到桥上(绿灯行)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="IL_out_1">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="IL_out"/>
+<org.eventb.core.guard name="'" org.eventb.core.comment="绿灯时候可以上桥" org.eventb.core.label="grd1" org.eventb.core.predicate="il_tl=green"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="b ≔ b−1" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="c ≔ c+1" org.eventb.core.label="act2"/>
+<org.eventb.core.guard name="+" org.eventb.core.comment="在减1之后也不能到0才能绿灯" org.eventb.core.label="grd2" org.eventb.core.predicate="b−1 &gt; 0"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="9" org.eventb.core.comment="控制从大陆上桥的交通灯" org.eventb.core.identifier="ml_tl"/>
+<org.eventb.core.variable name=":" org.eventb.core.comment="控制从岛屿上桥的交通灯" org.eventb.core.identifier="il_tl"/>
+<org.eventb.core.invariant name=";" org.eventb.core.label="inv1" org.eventb.core.predicate="ml_tl ∈ Color"/>
+<org.eventb.core.invariant name="=" org.eventb.core.label="inv2" org.eventb.core.predicate="il_tl ∈ Color"/>
+<org.eventb.core.invariant name="&gt;" org.eventb.core.comment="大陆交通灯绿灯的必备条件(安全性描述)" org.eventb.core.label="inv3" org.eventb.core.predicate="ml_tl=green ⇒ c=0 ∧ a+b&lt;d"/>
+<org.eventb.core.invariant name="?" org.eventb.core.comment="岛屿交通灯绿灯的必备条件(安全性描述)" org.eventb.core.label="inv4" org.eventb.core.predicate="il_tl=green ⇒ b&gt;0 ∧ a=0"/>
+<org.eventb.core.event name="D" org.eventb.core.comment="从岛到桥上(绿变红)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="IL_out_2">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="IL_out"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="il_tl=green"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="b−1 = 0"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="b ≔ b−1" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="c ≔ c+1" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="il_tl ≔ red" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="@" org.eventb.core.comment="把ml_tl变绿的事件" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ML_tl_green">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="ml_tl = red"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="c = 0 ∧ a+b &lt; d"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="ml_tl ≔ green" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="il_tl ≔ red" org.eventb.core.comment="把另一个红绿灯变红" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="A" org.eventb.core.comment="把il_tl变绿的事件" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="IL_tl_green">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="il_tl = red"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="b &gt; 0 ∧ a = 0"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="il_tl ≔ green" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="ml_tl ≔ red" org.eventb.core.comment="把另一个红绿灯变红" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.invariant name="B" org.eventb.core.comment="不能同时绿灯" org.eventb.core.label="inv5" org.eventb.core.predicate="ml_tl=red ∨ il_tl=red"/>
+</org.eventb.core.machineFile>

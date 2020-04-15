@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+<org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="3" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="3" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="8" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_1/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_1/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_1/grd1/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_1/grd2/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="9" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_2/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_2/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_2/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_2/grd1/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_out_2/grd2/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_in/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_in/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_in/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_1/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="12" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_1/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="12" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_1/grd1/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="12" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_1/grd2/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="12" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_2/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_2/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_2/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_2/grd1/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_out_2/grd2/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_tl_green/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_tl_green/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="ML_tl_green/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_tl_green/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="17" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_tl_green/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="17" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="IL_tl_green/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="17" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>

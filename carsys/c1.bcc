@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;org.animb.valuation.valBase">
+<org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/carsys/c0.bcc|org.eventb.core.scContextFile#c0" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.extendsContext#'"/>
+<org.eventb.core.scInternalContext name="c0">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="d∈ℕ" org.eventb.core.source="/carsys/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#(" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="d&gt;0" org.eventb.core.source="/carsys/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="d" org.eventb.core.source="/carsys/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.constant#'" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scInternalContext>
+<org.eventb.core.scAxiom name="c1" org.eventb.core.label="axm1" org.eventb.core.predicate="Color={red,green}" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#+" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="c2" org.eventb.core.label="axm2" org.eventb.core.predicate="red≠green" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#," org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="c3" org.eventb.core.label="axm3" org.eventb.core.predicate="card(Color)=2" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.axiom#-" org.eventb.core.theorem="true"/>
+<org.eventb.core.scCarrierSet name="Color" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.carrierSet#(" org.eventb.core.type="ℙ(Color)"/>
+<org.eventb.core.scConstant name="green" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.constant#*" org.eventb.core.type="Color"/>
+<org.eventb.core.scConstant name="red" org.eventb.core.source="/carsys/c1.buc|org.eventb.core.contextFile#c1|org.eventb.core.constant#)" org.eventb.core.type="Color"/>
+</org.eventb.core.scContextFile>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m0"/>
+<org.eventb.core.seesContext name="+" org.eventb.core.target="c0"/>
+<org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="a ≔ 0" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="b ≔ 0" org.eventb.core.label="act3"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="c ≔ 0" org.eventb.core.label="act4"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="-" org.eventb.core.comment="从大陆到桥上" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ML_out">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="ML_out"/>
+<org.eventb.core.action name="'" org.eventb.core.assignment="a ≔ a+1" org.eventb.core.comment="在桥上并向岛开的车辆数增加1" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="a+b+c&lt;d"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="c=0"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="." org.eventb.core.comment="从桥上到大陆上" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ML_in">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="ML_in"/>
+<org.eventb.core.guard name="(" org.eventb.core.comment="c&gt;0时候a+b+c肯定也是&gt;0的了" org.eventb.core.label="grd1" org.eventb.core.predicate="c&gt;0"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="c ≔ c−1" org.eventb.core.comment="在桥上并向大陆开的车辆数减少1" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="/" org.eventb.core.comment="从桥上往岛上走的车数量" org.eventb.core.identifier="a"/>
+<org.eventb.core.invariant name="0" org.eventb.core.label="inv1" org.eventb.core.predicate="a ∈ ℕ"/>
+<org.eventb.core.variable name="1" org.eventb.core.comment="岛上的车数量" org.eventb.core.identifier="b"/>
+<org.eventb.core.invariant name="2" org.eventb.core.label="inv2" org.eventb.core.predicate="b ∈ ℕ"/>
+<org.eventb.core.variable name="3" org.eventb.core.comment="从岛上往桥上走的车数量" org.eventb.core.identifier="c"/>
+<org.eventb.core.invariant name="4" org.eventb.core.label="inv3" org.eventb.core.predicate="c ∈ ℕ"/>
+<org.eventb.core.invariant name="5" org.eventb.core.comment="glue不变式，用具体状态粘合旧模型的抽象状态" org.eventb.core.label="inv4" org.eventb.core.predicate="a+b+c=n"/>
+<org.eventb.core.invariant name="6" org.eventb.core.comment="单向桥" org.eventb.core.label="inv5" org.eventb.core.predicate="a=0 ∨ c=0"/>
+<org.eventb.core.event name="7" org.eventb.core.comment="从桥上到岛上" org.eventb.core.convergence="1" org.eventb.core.extended="false" org.eventb.core.label="IL_in">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="a&gt;0"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="a ≔ a−1" org.eventb.core.label="act1"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="b ≔ b+1" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="8" org.eventb.core.convergence="1" org.eventb.core.extended="false" org.eventb.core.label="IL_out">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="b &gt; 0"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="a = 0"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="b ≔ b−1" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="c ≔ c+1" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.variant name="9" org.eventb.core.comment="为证明新引入的两个event而引入的变式，即去证明IL_in或IL_out每做一次，这个变式都会变小" org.eventb.core.expression="2∗a+b"/>
+<org.eventb.core.invariant name=":" org.eventb.core.comment="证明无死锁，即抽象模型所有guard的或能推出具体模型所有guard的或" org.eventb.core.label="DLF" org.eventb.core.predicate="n&lt;d ∨ n&gt;0 ⇒ (a+b+c&lt;d ∧ c=0) ∨ (c&gt;0) ∨ (a&gt;0) ∨ (b&gt;0 ∧ a=0)"/>
+</org.eventb.core.machineFile>

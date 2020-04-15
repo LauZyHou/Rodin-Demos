@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="4">
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="d" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/carsys/c0.bpo|org.eventb.core.poFile#c0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/carsys/c0.bpo|org.eventb.core.poFile#c0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="d∈ℕ" org.eventb.core.source="/carsys/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="d&gt;0" org.eventb.core.source="/carsys/c0.buc|org.eventb.core.contextFile#c0|org.eventb.core.axiom#)"/>
 </org.eventb.core.poPredicateSet>

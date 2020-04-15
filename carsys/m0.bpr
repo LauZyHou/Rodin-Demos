@@ -155,7 +155,20 @@
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="DLF/THM"/>
+<org.eventb.core.prProof name="DLF/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p4,p1,p2">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="30000"/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="d" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="n∈ℕ"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="n≤d"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="d∈ℕ"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="d&gt;0"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="n&lt;d∨n&gt;0"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+</org.eventb.core.prProof>
 <org.eventb.core.prProof name="INITIALISATION/DLF/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.lang name="L"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
